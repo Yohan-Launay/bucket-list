@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-#[Route('/wish', name: 'app_wish')]
+#[Route('/user/wish', name: 'app_wish')]
 class WishController extends AbstractController
 {
     #[Route(name: '')]

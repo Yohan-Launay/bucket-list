@@ -15,7 +15,7 @@ class MainController extends AbstractController
         return $this->render('home/index.html.twig');
     }
 
-    #[Route('/about', name: 'about')]
+    #[Route('/user/about', name: 'about')]
     public function about(): Response
     {
         $jsonFilePath = $this->getParameter('kernel.project_dir') . '/data/team.json';
