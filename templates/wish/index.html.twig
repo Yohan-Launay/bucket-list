@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello WishController!{% endblock %}
+
+{% block body %}
+    <h2 class="text-center">All wishes</h2>
+    <a class="btn btn-primary m-2" href="{{ path('app_wish_add') }}">Ajouter un wish</a>
+    <div class="d-flex justify-content-start flex-wrap">
+    {% for wish in wished  %}
+        {% if wish.isPublished == true %}
+        <div class="d-flex align-items-center border rounded mx-2">
+            <div class="p-3 text-black">
+                <a class="text-decoration-none" href="{{ path('app_wish_details',{'id': wish.id }) }}" >
+                    {% if wish.imageFileName != null %}
+                        <img src="{{ asset('uploads/image/' ~ wish.imageFileName ) }}" alt="">
+                    {% endif %}
+                    <h2>{{ wish.title }}</h2>
+                    <p>Catégorie : {{ wish.category.name }} </p>
+                    <p>Créé le : {{ wish.createdAt|date('d-m-y') }}</p>
+                    <p>Mise à jour le : {{ wish.updatedAt|date('d-m-y') }}</p>
+                </a>
+            </div>
+            <div class="d-flex justify-content-around">
+                <a class="btn btn-primary m-2" href="{{ path('app_wish_update', {'id': wish.id }) }}">
+                    <i class="fa-solid fa-pen"></i>
+                </a>
+                <form action="{{ path('app_wish_delete') }}" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer ce wish ?');" class="m-2">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token("delete_wish_"~wish.id) }}">
+                    <button class="btn btn-danger" name="delete-wish" value="{{ wish.id }}" type="submit" >
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </form>
+            </div>
+
+
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+{% endblock %}

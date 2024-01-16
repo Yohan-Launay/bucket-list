@@ -1,0 +1,47 @@
+form > div {
+    padding: 10px 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+body {
+    background: #c9c9c9;
+}
+
+nav {
+    background: rgba(255, 255, 255, 0.26);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    width: 50%;
+    position: fixed;
+    top: 10px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+nav img {
+    width: 30px;
+}
+
+h1 {
+    font-size: 25px;
+    padding: 5px;
+}
+
+main {
+    background: #f3f3f3;
+    border-radius: 15px;
+    padding: 1em;
+}

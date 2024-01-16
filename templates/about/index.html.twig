@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}A propos {% endblock %}
+
+{% block body %}
+    <h2>A propos</h2>
+    <div class="d-flex justify-content-around">
+    {% for author in teamData %}
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{ author.picture }}" alt="{{ author.firstname }} {{ author.lastname }}">
+            {% if author.firstname == 'Fabien' %}
+                {{ '❤' }}
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ author.firstname }} {{ author.lastname }}</h5>
+                <p>Date of Birth: {{ author.dateOfBirth|date('d-m-Y') }}</p>
+                <p>Creator of: {{ author.creatorOf }}</p>
+                <p>Description: {{ author.description }}</p>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

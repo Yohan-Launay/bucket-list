@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Update wish{% endblock %}
+
+{% block body %}
+    <h2 class="text-center">Mise à jour d'un wish</h2>
+    <div class="row g-3 align-items-center justify-content-center">
+        <div class="col-6 w-50">
+            {{ form_start(wish) }}
+            {{ form_end(wish) }}
+        </div>
+    </div>
+{% endblock %}
