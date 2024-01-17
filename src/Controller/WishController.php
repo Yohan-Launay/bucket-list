@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\Wish;
 use App\Form\WishType;
 use App\Repository\WishRepository;
-use App\Service\Censurator;
+use App\Service\CensuratorService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -29,7 +29,7 @@ class WishController extends AbstractController
 
 
     #[Route('/add', name: '_add')]
-    public function addWish(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger, Censurator $censurator): Response
+    public function addWish(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger, CensuratorService $censurator): Response
     {
         $wish = new Wish();
         $wish->setAuthor($this->getUser()->getUserIdentifier());
@@ -72,7 +72,7 @@ class WishController extends AbstractController
     }
 
     #[Route('/update/{id}', name: '_update')]
-    public function update(Wish $wish, EntityManagerInterface $entityManager, Request $request, Censurator $censurator): Response
+    public function update(Wish $wish, EntityManagerInterface $entityManager, Request $request, CensuratorService $censurator): Response
     {
         $form = $this->createForm(WishType::class, $wish);
         $form->handleRequest($request);

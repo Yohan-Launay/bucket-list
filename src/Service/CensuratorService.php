@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-class Censurator
+class CensuratorService
 {
     const UNWANTED_WORDS = ["casino", "viagra", "bad", "banana"];
 

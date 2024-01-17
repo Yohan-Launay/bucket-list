@@ -18,6 +18,11 @@
                         <a class="nav-link {{ currentPage == "/about"?'active':'' }}" aria-current="page" href="{{ path('app_about') }}">About</a>
                     </li>
                 {% endif %}
+                {% if is_granted("ROLE_ADMIN") %}
+                    <li>
+                        <a class="nav-link text-danger" href="{{ path("app_admin_customer") }}">Back-office</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
         <div>

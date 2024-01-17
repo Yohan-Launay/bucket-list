@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BackofficeController!{% endblock %}
+
+{% block body %}
+<div>
+    {% for customer in customers %}
+        <p>{{ customer.username }}</p>
+    {% endfor %}
+</div>
+{% endblock %}
