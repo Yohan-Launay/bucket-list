@@ -4,11 +4,11 @@ namespace App\Service;
 
 class CensuratorService
 {
-    const UNWANTED_WORDS = ["casino", "viagra", "bad", "banana"];
 
-    public function purify(?string $text): string
+    public function purify(string $text): string
     {
-        foreach(self::UNWANTED_WORDS as $unwantedWord) {
+        $unwantedWords = ["con", "batard", "connard", "fils de pute"];
+        foreach($unwantedWords as $unwantedWord) {
             $replacement = str_repeat("*", mb_strlen($unwantedWord));
             $text = str_ireplace($unwantedWord, $replacement, $text);
         }
